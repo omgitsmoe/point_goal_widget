@@ -1,7 +1,5 @@
 let userLocale = "en-US",
     includeFollowers = true,
-    includeRedemptions = true,
-    includeHosts = true,
     includeSubs = true,
     includeTips = true,
     includeCheers = true,
@@ -15,8 +13,6 @@ let userLocale = "en-US",
     subscriberMultiplier = 1,
     cheersPerPoint = 100,
     tipsMultiplier = 1;
-
-let userCurrency;
 
 window.addEventListener('onEventReceived', function (obj) {
     if (!obj.detail.event) {
@@ -35,12 +31,9 @@ window.addEventListener('onWidgetLoad', function (obj) {
     recents.sort(function (a, b) {
         return Date.parse(a.createdAt) - Date.parse(b.createdAt);
     });
-    userCurrency = obj.detail.currency;
     const fieldData = obj.detail.fieldData;
     eventsLimit = fieldData.eventsLimit;
     includeFollowers = (fieldData.includeFollowers === "yes");
-    includeRedemptions = (fieldData.includeRedemptions === "yes");
-    includeHosts = (fieldData.includeHosts === "yes");
     includeSubs = (fieldData.includeSubs === "yes");
     includeTips = (fieldData.includeTips === "yes");
     includeCheers = (fieldData.includeCheers === "yes");
