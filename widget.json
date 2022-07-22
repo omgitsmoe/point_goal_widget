@@ -45,6 +45,11 @@
     "label": "Font Size",
     "value": 18
   },
+  "fontFamily": {
+    "type": "text",
+    "label": "Font family (Google Fonts)",
+    "value": "Montserrat"
+  },
   "titleColor": {
     "type": "colorpicker",
     "label": "Title font color",
