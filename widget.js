@@ -127,6 +127,7 @@ function updateProgressBar() {
   fill.style.width = `${progressInPercent}%`;
   // use at most 2 decimals places; the + drops any extra zeroes at the end
   currentText.textContent = +currentPoints.toFixed(2);
+  currentText.style.left = `${Math.max(3, progressInPercent)}%`;
 }
 
 function processEvent(type, amount) {

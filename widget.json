@@ -11,6 +11,20 @@
     "label": "Goal",
     "value": 30
   },
+  "pointsGoalTier2": {
+    "type": "number",
+    "min": 0,
+    "step": 1,
+    "label": "Goal Tier2",
+    "value": 60
+  },
+  "pointsGoalTier3": {
+    "type": "number",
+    "min": 0,
+    "step": 1,
+    "label": "Goal Tier3",
+    "value": 80
+  },
   "currentPoints": {
     "type": "number",
     "min": 0,
@@ -34,7 +48,27 @@
     "type": "colorpicker",
     "label": "Progress fill color",
     "value": "rgb(145, 35, 10)"
-  },  
+  },
+  "barColorTier2": {
+    "type": "colorpicker",
+    "label": "Bar color tier2",
+    "value": "rgb(63, 81, 181)"
+  },
+  "fillColorTier2": {
+    "type": "colorpicker",
+    "label": "Progress fill color tier2",
+    "value": "rgb(145, 35, 10)"
+  },
+  "barColorTier3": {
+    "type": "colorpicker",
+    "label": "Bar color tier3",
+    "value": "rgb(63, 81, 181)"
+  },
+  "fillColorTier3": {
+    "type": "colorpicker",
+    "label": "Progress fill color tier3",
+    "value": "rgb(145, 35, 10)"
+  }, 
   "fontColor": {
     "type": "colorpicker",
     "label": "Font color",
