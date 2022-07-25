@@ -149,7 +149,7 @@ function updateProgressBar() {
   if (currentTier == 2) {
     console.log('Updating tier2');
     const tier2 = document.getElementById('progress-bar-tier2');
-    tier2.style.visibility = "visible";
+    tier2.style.display = null;
     const title = document.getElementById('title');
     title.textContent = "{titleTextTier2}";
     const width = {tier1Size} + {tier2Size};
@@ -161,7 +161,7 @@ function updateProgressBar() {
   if (currentTier == 3) {
     console.log('Updating tier3');
     const tier3 = document.getElementById('progress-bar-tier3');
-    tier3.style.visibility = "visible";
+    tier3.style.display = null;
     const title = document.getElementById('title');
     title.textContent = "{titleTextTier3}";
     title.style.width = "100%";

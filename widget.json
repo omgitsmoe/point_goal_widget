@@ -107,7 +107,27 @@
     "type": "colorpicker",
     "label": "Progress fill color tier3",
     "value": "rgb(145, 35, 10)"
-  }, 
+  },
+  "tier2EntranceAnimation": {
+    "type": "dropdown",
+    "label": "Tier 2 entrance animation",
+    "value": "flicker-in-1",
+    "options": {
+      "slide-in-right": "Slide in from the right",
+  	  "flicker-in-1": "Flicker in (like a flickering electronic sign)",
+      "bounce-in-right": "Bounce in from the right"
+	}
+  },
+  "tier3EntranceAnimation": {
+    "type": "dropdown",
+    "label": "Tier 3 entrance animation",
+    "value": "bounce-in-right",
+    "options": {
+      "slide-in-right": "Slide in from the right",
+  	  "flicker-in-1": "Flicker in (like a flickering electronic sign)",
+      "bounce-in-right": "Bounce in from the right"
+	}
+  },
   "fontColor": {
     "type": "colorpicker",
     "label": "Font color",
