@@ -5,6 +5,9 @@ let userLocale = "en-US",
     includeCheers = true,
     currentPoints = 0,
     pointsGoal = 0,
+    pointsGoalTier2 = 0,
+    pointsGoalTier3 = 0,
+    currentTier = 1,
     globalMultiplier = 1,
     tier1Multiplier = 1,
     tier2Multiplier = 2,
@@ -13,6 +16,8 @@ let userLocale = "en-US",
     subscriberMultiplier = 1,
     cheersPerPoint = 100,
     tipsPerPoint = 3;
+    titleTextTier2 = '',
+    titleTextTier3 = '';
 
 window.addEventListener('onEventReceived', function (obj) {
     if (!obj.detail.event) {
@@ -39,6 +44,8 @@ window.addEventListener('onWidgetLoad', function (obj) {
     includeCheers = (fieldData.includeCheers === "yes");
   	currentPoints = fieldData.currentPoints;
   	pointsGoal = fieldData.pointsGoal;
+  	pointsGoalTier2 = fieldData.pointsGoalTier2;
+  	pointsGoalTier3 = fieldData.pointsGoalTier3;
   	globalMultiplier = fieldData.globalMultiplier;
   	tier1Multiplier = fieldData.tier1Multiplier;
     tier2Multiplier = fieldData.tier2Multiplier;
@@ -47,6 +54,8 @@ window.addEventListener('onWidgetLoad', function (obj) {
     subscriberMultiplier = fieldData.subscriberMultiplier;
     cheersPerPoint = fieldData.cheersPerPoint;
     tipsPerPoint = fieldData.tipsPerPoint;
+    titleTextTier2 = fieldData.titleTextTier2;
+  	titleTextTier3 = fieldData.titleTextTier3;
     userLocale = fieldData.locale;
     
   	// NOTE: there are a bunch of test events coming in that can't
@@ -120,14 +129,45 @@ function parseEvent(eventType, event) {
   }
 }
 
-function updateProgressBar() {
+function updateFill(fillNode, start, goal) {
+  const progressInPercent = (currentPoints - start) / (goal - start) * 100;
+  console.log('Progress:', progressInPercent, '%');
+  if (progressInPercent >= 100) currentTier += 1;
+  fillNode.style.width = `${progressInPercent}%`;
+}
+
+function updateProgressBar() {  
+  // can't be else ifs since we might finish one tier and go into the next
+  // in one contribution
+  if (currentTier == 1) {
+    console.log('Updating tier1');
+    const fill = document.getElementById('progress-fill');
+    updateFill(fill, 0, pointsGoal);    
+  }
+  if (currentTier == 2) {
+    console.log('Updating tier2');
+    const tier2 = document.getElementById('progress-bar-tier2');
+    tier2.style.visibility = "visible";
+    const title = document.getElementById('title');
+    title.textContent = titleTextTier2;
+    
+    const fill = document.getElementById('progress-fill-tier2');
+    updateFill(fill, pointsGoal, pointsGoalTier2);
+  }
+  if (currentTier == 3) {
+    console.log('Updating tier3');
+    const tier3 = document.getElementById('progress-bar-tier3');
+    tier3.style.visibility = "visible";
+    const title = document.getElementById('title');
+    title.textContent = titleTextTier3;
+    
+    const fill = document.getElementById('progress-fill-tier3');
+    updateFill(fill, pointsGoalTier2, pointsGoalTier3);
+  }
+    
   const currentText = document.getElementById('progress-current');
-  const fill = document.getElementById('progress-fill');
-  const progressInPercent = currentPoints / pointsGoal * 100;
-  fill.style.width = `${progressInPercent}%`;
   // use at most 2 decimals places; the + drops any extra zeroes at the end
   currentText.textContent = +currentPoints.toFixed(2);
-  currentText.style.left = `${Math.max(3, progressInPercent)}%`;
 }
 
 function processEvent(type, amount) {

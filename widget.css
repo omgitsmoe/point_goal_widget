@@ -10,13 +10,14 @@
   color:{{titleColor}};
   font-weight:bold;
   text-shadow: {{titleShadow}};
+  width: 60%;
+  text-align: center;
 }
 
 .main-container {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .bar-wrap {
@@ -46,12 +47,14 @@
   width: 20%;
   left: 60%;
   background-color: {{barColorTier2}};
+  justify-content: space-between;
 }
 
 #progress-bar-tier3 {
   width: 20%;
   left: 80%;
   background-color: {{barColorTier3}};
+  justify-content: space-between;
 }
 
 #progress-fill {
@@ -77,22 +80,13 @@
 }
 
 #progress-current {
-  /*left: 50%;
+  left: 50%;
   top: 50%;
   position: absolute;
-  transform: translate(-50%,-50%);*/
-  padding: 5px;
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 1.5%;
-  transition: .2s ease;
-  z-index: 1;
-  transform: translate(-100%,0%);
+  transform: translate(-50%,-50%);
 }
 
 #progress-goal {
   padding-right: 8px;
 }
-
 

@@ -2,7 +2,17 @@
   "titleText": {
     "type": "text",
     "label": "Title text",
-    "value": "Points goal:"
+    "value": "Points goal"
+  },
+  "titleTextTier2": {
+    "type": "text",
+    "label": "Title text for tier 2",
+    "value": "Tier 2"
+  },
+  "titleTextTier3": {
+    "type": "text",
+    "label": "Title text for tier 3",
+    "value": "Tier 3"
   },
   "pointsGoal": {
     "type": "number",

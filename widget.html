@@ -3,17 +3,18 @@
   <div id="title">{{titleText}}</div>
   <div class="bar-wrap">
     <div class="progress-bar" id="progress-bar">
-      <span id="progress-current">2</span>
       <span class="progress-fill" id="progress-fill"></span>
-      <!--<span id="progress-current">{{currentPoints}}</span>-->
+      <span id="progress-current">{{currentPoints}}</span>
       <span id="progress-goal">{{pointsGoal}}</span>
     </div>
-    <div class="progress-bar" id="progress-bar-tier2">
-      <span class="progress-fill" id="progress-fill-tier2"></span>      
+    <div class="progress-bar" id="progress-bar-tier2" style="visibility: hidden;">
+      <span class="progress-fill" id="progress-fill-tier2"></span>
+      <span style="z-index: 1;">{{titleTextTier2}}</span>
       <span id="progress-goal">{{pointsGoalTier2}}</span>
     </div>
-    <div class="progress-bar" id="progress-bar-tier3">
-      <span class="progress-fill" id="progress-fill-tier2"></span>     
+    <div class="progress-bar" id="progress-bar-tier3" style="visibility: hidden;">
+      <span class="progress-fill" id="progress-fill-tier3"></span>
+      <span style="z-index: 1;">{{titleTextTier3}}</span>
       <span id="progress-goal">{{pointsGoalTier3}}</span>
     </div>
   </div>
