@@ -18,6 +18,7 @@ let userLocale = "en-US",
     tipsPerPoint = 3;
     titleTextTier2 = '',
     titleTextTier3 = '';
+    pointText = '';
 
 window.addEventListener('onEventReceived', function (obj) {
     if (!obj.detail.event) {
@@ -56,6 +57,7 @@ window.addEventListener('onWidgetLoad', function (obj) {
     tipsPerPoint = fieldData.tipsPerPoint;
     titleTextTier2 = fieldData.titleTextTier2;
   	titleTextTier3 = fieldData.titleTextTier3;
+    pointText = fieldData.pointText;
     userLocale = fieldData.locale;
     
   	// NOTE: there are a bunch of test events coming in that can't
@@ -149,7 +151,7 @@ function updateProgressBar() {
     const tier2 = document.getElementById('progress-bar-tier2');
     tier2.style.visibility = "visible";
     const title = document.getElementById('title');
-    title.textContent = titleTextTier2;
+    title.textContent = "{titleTextTier2}";
     
     const fill = document.getElementById('progress-fill-tier2');
     updateFill(fill, pointsGoal, pointsGoalTier2);
@@ -159,15 +161,22 @@ function updateProgressBar() {
     const tier3 = document.getElementById('progress-bar-tier3');
     tier3.style.visibility = "visible";
     const title = document.getElementById('title');
-    title.textContent = titleTextTier3;
+    title.textContent = "{titleTextTier3}";
     
     const fill = document.getElementById('progress-fill-tier3');
     updateFill(fill, pointsGoalTier2, pointsGoalTier3);
   }
+  
+  
     
   const currentText = document.getElementById('progress-current');
+  // streamelements placeholder syntax messes with js string templates
+  // so ${pointText} will insert the initial value of pointText after $ in a template string
+  // even using a different variable name when loading the variable from obj.detail.fieldData won't work
   // use at most 2 decimals places; the + drops any extra zeroes at the end
-  currentText.textContent = +currentPoints.toFixed(2);
+  const pts = +currentPoints.toFixed(2);
+  const txt = pointText;
+  currentText.textContent = `${txt}${txt.length > 0 ? ' ' : ''}${pts}`;
 }
 
 function processEvent(type, amount) {
