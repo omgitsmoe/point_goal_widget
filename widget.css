@@ -12,6 +12,7 @@
   text-shadow: {{titleShadow}};
   width: 60%;
   text-align: center;
+  transition: .5s ease;
 }
 
 .main-container {
@@ -39,20 +40,20 @@
 }
 
 #progress-bar {
-  width: 60%;
+  width: {{tier1Size}}%;
   background-color: {{barColor}};
 }
 
 #progress-bar-tier2 {
-  width: 20%;
-  left: 60%;
+  width: {{tier2Size}}%;
+  left: {{tier1Size}}%;
   background-color: {{barColorTier2}};
   justify-content: space-between;
 }
 
 #progress-bar-tier3 {
-  width: 20%;
-  left: 80%;
+  width: {{tier3Size}}%;
+  left: calc({{tier1Size}}% + {{tier2Size}}%);
   background-color: {{barColorTier3}};
   justify-content: space-between;
 }
@@ -76,7 +77,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  transition: .2s ease;
+  transition: .5s ease;
 }
 
 #progress-current {

@@ -152,6 +152,8 @@ function updateProgressBar() {
     tier2.style.visibility = "visible";
     const title = document.getElementById('title');
     title.textContent = "{titleTextTier2}";
+    const width = {tier1Size} + {tier2Size};
+    title.style.width = `${width}%`;
     
     const fill = document.getElementById('progress-fill-tier2');
     updateFill(fill, pointsGoal, pointsGoalTier2);
@@ -162,6 +164,7 @@ function updateProgressBar() {
     tier3.style.visibility = "visible";
     const title = document.getElementById('title');
     title.textContent = "{titleTextTier3}";
+    title.style.width = "100%";
     
     const fill = document.getElementById('progress-fill-tier3');
     updateFill(fill, pointsGoalTier2, pointsGoalTier3);

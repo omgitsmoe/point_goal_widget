@@ -18,6 +18,13 @@
     "type": "text",
     "label": "Text in front of current points",
     "value": ""
+  },  
+  "currentPoints": {
+    "type": "number",
+    "min": 0,
+    "step": 0.01,
+    "label": "Current points",
+    "value": 0
   },
   "pointsGoal": {
     "type": "number",
@@ -40,12 +47,29 @@
     "label": "Goal Tier3",
     "value": 80
   },
-  "currentPoints": {
+  "tier1Size": {
     "type": "number",
-    "min": 0,
-    "step": 0.01,
-    "label": "Current points",
-    "value": 0
+    "min": 5,
+    "max": 90,
+    "step": 1,
+    "label": "Size of tier 1 progress bar in percent",
+    "value": 60
+  },
+  "tier2Size": {
+    "type": "number",
+    "min": 5,
+    "max": 90,
+    "step": 1,
+    "label": "Tier 2 size (all % should add up to 100%)",
+    "value": 20
+  },
+  "tier3Size": {
+    "type": "number",
+    "min": 5,
+    "max": 90,
+    "step": 1,
+    "label": "Size of tier 3 progress bar in percent",
+    "value": 20
   },
   "globalMultiplier": {
     "type": "number",
@@ -641,5 +665,4 @@
     }
   }
 }
-
 
