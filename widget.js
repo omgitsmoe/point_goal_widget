@@ -125,7 +125,8 @@ function updateProgressBar() {
   const fill = document.getElementById('progress-fill');
   const progressInPercent = currentPoints / pointsGoal * 100;
   fill.style.width = `${progressInPercent}%`;
-  currentText.textContent = currentPoints;
+  // use at most 2 decimals places; the + drops any extra zeroes at the end
+  currentText.textContent = +currentPoints.toFixed(2);
 }
 
 function processEvent(type, amount) {
