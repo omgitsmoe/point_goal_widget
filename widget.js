@@ -12,7 +12,7 @@ let userLocale = "en-US",
     followerMultiplier = 1,
     subscriberMultiplier = 1,
     cheersPerPoint = 100,
-    tipsMultiplier = 1;
+    tipsPerPoint = 3;
 
 window.addEventListener('onEventReceived', function (obj) {
     if (!obj.detail.event) {
@@ -46,7 +46,7 @@ window.addEventListener('onWidgetLoad', function (obj) {
     followerMultiplier = fieldData.followerMultiplier;
     subscriberMultiplier = fieldData.subscriberMultiplier;
     cheersPerPoint = fieldData.cheersPerPoint;
-    tipsMultiplier = fieldData.tipsMultiplier;
+    tipsPerPoint = fieldData.tipsPerPoint;
     userLocale = fieldData.locale;
     
   	// NOTE: there are a bunch of test events coming in that can't
@@ -138,7 +138,8 @@ function processEvent(type, amount) {
   } else if (type === 'cheer') {
     typeMultiplier = 1 / cheersPerPoint;
   } else if (type === 'tip') {
-    typeMultiplier = tipsMultiplier;
+    // in units of the preferrec currency: e.g. $3 per point
+    typeMultiplier = 1 / tipsPerPoint;
   }
   
   currentPoints += amount * typeMultiplier * globalMultiplier;
