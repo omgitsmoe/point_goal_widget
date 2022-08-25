@@ -134,7 +134,12 @@ function parseEvent(eventType, event) {
 function updateFill(fillNode, start, goal) {
   const progressInPercent = (currentPoints - start) / (goal - start) * 100;
   console.log('Progress:', progressInPercent, '%');
-  if (progressInPercent >= 100) currentTier += 1;
+  if (progressInPercent >= 100) {
+    currentTier += 1;
+    // reset z-index so point goal of old tier won't cover the progress bar
+    const goalText = fillNode.nextElementSibling.nextElementSibling;
+    goalText.style.zIndex = null;
+  }
   fillNode.style.width = `${progressInPercent}%`;
 }
 
