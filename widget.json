@@ -131,7 +131,7 @@
     "type": "number",
     "min": 0,
     "step": 0.01,
-    "label": "Tips multiplier",
+    "label": "Units of preferred currency per point",
     "value": 3
   },
   "includeCheers": {
