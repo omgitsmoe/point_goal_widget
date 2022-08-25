@@ -14,7 +14,7 @@
   "currentPoints": {
     "type": "number",
     "min": 0,
-    "step": 1,
+    "step": 0.01,
     "label": "Current points",
     "value": 0
   },
